@@ -166,18 +166,20 @@ class Main():
     def remove(self):
         selected = self.view.selection()
         values = self.view.item(selected, "values")
+        query = values[0]
 
-        data = open("data.csv", "r").readlines()
-
-        with open("data.csv", "w") as csv_file:
-            for row in data:
-                query = values[0]
-                if query in row:
-                    pass
-                else:
-                    csv_file.write(f"{row}")            
-        self.view.delete(selected)
-        self.showall()
+        if bool(query) is False:
+            pass
+        else:
+            data = open("data.csv", "r").readlines()
+            with open("data.csv", "w") as csv_file:
+                for row in data:
+                    if query in row:
+                        pass
+                    else:
+                        csv_file.write(f"{row}")            
+            self.view.delete(selected)
+            self.showall()
 
     def edit(self):
         self.fentry.delete(0, END)
