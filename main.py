@@ -94,7 +94,7 @@ class Main():
         self.scrollx = ttk.Scrollbar(self.searchContent, orient=VERTICAL)
         self.view = ttk.Treeview(self.searchContent, columns=(1,2,3,4,5,6), show="headings", height=10, xscrollcommand=self.scrollx.set)
         self.style = ttk.Style()
-        self.style.configure("Treeview.Heading", foreground="#FFFFFF", background="#800000")
+        self.style.configure("Treeview.Heading", foreground="#000000", font=("Arial", 10, "bold"))
         self.style.map("Treeview", background=[("selected", "#800000")])
 
         self.view.heading(1, text="ID Number")
